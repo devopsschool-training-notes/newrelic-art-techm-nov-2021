@@ -1,0 +1,134 @@
+8AM IST - 1 PM IST - 5 Hours
+---------------------
+20 mins
+============
+10 AM BREAK
+
+Lab - Demo - AWS
+=========================================================================
+Objective of Org
+---------------------
+	Reduce Dev Cost
+	Reduce a App Running Cost
+	Improve Quality
+	Imm Release
+
+How?
+--------------------
+Model		WATERFALL -> Agile -> DevOps -> DevSecOps
+				 ------------------
+				  Engineering + SRE
+
+Arch		Monolitic ---> SOA -> Microservices
+Platform	PHYSCIAL SER --> Virtual Server ---> Containers
+Release		6 mon		2 week			1 mins
+Mindsets
+Culture
+Process
+Practices
+Tools
+====================================================================
+DevOps
+----------------------
+- CAN YOU Code for the SOFTWARE
+- CAN YOU Code for the testing Quality of SOFTWARE
+- CAN YOU Code for the OPs for running/mgmt of SOFTWARE
+------------------------------------------------------------------------
+
+SDLC
+================================================================================
+PLAN -> CODE -> ANALYSE -> BUILD -> UT -> Package -> Archive -> Dep2Qa -> AT -> CC 
+---------------------------------------------------------------------------------
+JIRA -> GIT -> Sonarqube -> Maven -> junit-> War -> Artifactory-> Ansible -> Sel -> Jacoco
+
+
+												------------------------------------------------------------------------------------
+								IF ALLL PASSED - Release
+								IF one FAILED - REPeat
+
+========================================================================================
+Dep2Prod -> Monitoring
+	   ------------------------------------------------------------------------
+	    INFRA  + LOGS + UIXP + Performance + SYN + SEC +
+	  ----------------------------------------------------------
+			       NewRelic
+
+https://www.devopsschool.com/path/
+
+====================================
+Obs
+	Metrics = DATADOG + Nagios + Prom + Zabbix
+	Logs = ES + Splunk
+	APM = NewRelic, AppDyna
+=========================
+DATADOG = MELT SOL
+Elastic = MELT SOL
+NewRelic == MELT SOL
+Splunk = = MELT SOL
+=========================
+===============================================================
+
+
+
+	Elasticsearch
+	Prom
+	TSDB
+	influxdb
+	----------------
+
+Generate --> Collection -> Parse & Indexing -> Store <------------ VISUALIZE
+------------------------------------------------------------------
+SYSTEM  ---> -------------------- ->
+		 Agent			NR CLOUD ---------> NC CLOUD
+
+-----------------------------------------------------------------------
+app.exe
+
+./app.exe
+exit
+
+./appd.exe ---> app.exe
+====================================================
+SYSTEM ---> SYSTEM DATA ---> SAMPLERS <----------NEW AGENT  ---> NewRelic
+SYSTEM ---> APP(Apache) ---> Apache Intgeration <----------NEW AGENT  ---> NewRelic
+SYSTEM ---> APP(MINE)
+	    JAVA --> STASD(jar) ------------------<----------NEW AGENT  ---> NewRelic
+	    INSTRUMENTING USING STASD
+SYSTEM ---> APP --> Logfile <----------NEW AGENT  ---> NewRelic 
+
+
+==============================================
+How to install NewRelic Infra Agent in Linux?
+
+Starting installation.
+Installing New Relic CLI v0.38.0
+
+
+
+13.233.63.164
+ssh -i rajesh-mumbai.pem ubuntu@13.23
+
+ https://docs.newrelic.com/docs/infrastructure/install-infrastructure-agent/configuration/infrastructure-agent-configuration-settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+QA
+--------------------
+Rejesh, I think our requirement is , instead of dashboard in new relic web, if API support is there, then we can query the data from new relic database and we can build our own dashboard outside of new relic, right?
+
+
+
+
+
+
+
