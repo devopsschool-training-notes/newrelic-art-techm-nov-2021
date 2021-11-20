@@ -113,7 +113,20 @@ ssh -i rajesh-mumbai.pem ubuntu@13.23
 
 
 
-
+Sajja Sudhakararao		65.2.70.204
+MOHAN SAI			35.154.253.244
+Apuroop Sai Vempati		13.126.142.194
+Geddada Mani Prasanth		65.0.75.214
+Parijat Vaidya			13.235.75.175
+Puneet Jain			3.108.236.43
+Koduru Venkatasubbarayudu	65.2.161.244
+karthik T			13.233.159.211
+Rohith VJ			65.2.57.96
+Hemadri Byripogula		15.207.113.253
+AFzal Khan			13.235.71.166
+Karre Rajesh			3.109.121.188
+Vijaya vitta			65.0.176.229
+Kalai Selvan M			65.0.75.43
 
 
 
