@@ -1,0 +1,165 @@
+================
+Infra
+=============
+Integration
+- Linux - DONE
+- Windows	- 10 mins		DONE
+- Apache	-  5 mins		DONE
+- MySql		- 10 
+- Docker	 5min			
+- Kubernetes - 30 mins - kubeadm
+===============
+mysql on latop 	--> metrics of RDS
+mysql on vm	--> metrics of RDS
+mysql on rds	--> metrics of RDS
+
+
+APM
+-------------
+- JAVA
+===================
+70% DEMO
+30% LAB
+========================================
+========================================
+ONE NEAR TO REAL TIME
+----------------------	2 HOURS - 2 Hours	CONTAINER
+APP --> DATA --> NR
+
+
+
+docker run -d --name mysql \
+    -e MYSQL_ROOT_PASSWORD="petclinic" \
+    -e MYSQL_DATABASE="petclinic" \
+    -e MYSQL_USER="petclinic" \
+    -e MYSQL_PASSWORD="petclinic" \
+    -p 3306:3306 mysql:5.5
+
+
+$ docker run -it -d --tmpfs /run --tmpfs /tmp --name petclinic \
+    -e NEW_RELIC_APP_NAME="New-Relic-Pet-Clinic1" \
+    -e JAVA_OPTS="-Xms128m -Xmx320m -XX:MaxPermSize=128m -javaagent:/usr/local/tomcat/newrelic/newrelic.jar" \
+    -e JDBC_CONNECTION_STRING="jdbc:mysql://mysql:3306/petclinic" \
+    -e NEW_RELIC_LICENSE_KEY="NRAK-LAK1USC8O0APYJPW79VDKZQ1U62" \
+    -e NEW_RELIC_ACCOUNT_ID="3347222" \
+    -v ~/newrelic:/usr/local/tomcat/newrelic \
+    -v ~/webapps:/usr/local/tomcat/webapps \
+    -v ~/logs:/usr/local/tomcat/logs \
+    --link mysql:mysql -p 80:8080 amd64/tomcat:7.0
+
+
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=128m; support was removed in 8.0
+2021-11-21T05:01:00,724+0000 [1 1] com.newrelic INFO: New Relic Agent: Loading configuration file "/usr/local/tomcat/newrelic/./newrelic.yml"
+2021-11-21T05:01:00,905+0000 [1 1] com.newrelic INFO: Using default collector host: collector.newrelic.com
+2021-11-21T05:01:00,905+0000 [1 1] com.newrelic INFO: Using default metric ingest URI: https://metric-api.newrelic.com/metric/v1
+2021-11-21T05:01:00,906+0000 [1 1] com.newrelic INFO: Using default event ingest URI: https://insights-collector.newrelic.com/v1/accounts/events
+2021-11-21T05:01:01,111+0000 [1 1] com.newrelic INFO: New Relic Agent: Writing to log file: /usr/local/tomcat/newrelic/logs/newrelic_agent.log
+=============================================================================
+
+Step 1 - Install Docker
+Step 2 - Get a DB container
+Step 3 - Get a APP Container
+Step 4 - Enable a NR APM agent 
+Step 5 - Generate a Traffic using Jemeter - in Pro
+===============================
+Step 1 - Install Java		DONE
+Step 2 - Install Tomcat		DONE
+Step 3 - Installing app		http://3.108.58.138:8080/examples/servlets/servlet/HelloWorldExample
+Step 4 - Setting up NR APM Agent Manually	DONE
+Step 5 - Creating a Traffic from Jemeter
+Step 6 - Visualize a data on NR
+
+
+http://3.108.58.138:8080/examples/async/async0
+http://3.108.58.138:8080/examples/async/async1
+http://3.108.58.138:8080/examples/servlets/servlet/HelloWorldExample
+
+curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-LAK1USC8O0APYJPW79VDKZQ1U62 NEW_RELIC_ACCOUNT_ID=3347222 /usr/local/bin/newrelic install -n java-agent-installer
+
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/apache-tomcat-9.0.55/webapps/newrelic/newrelic.jar"
+
+catalina.out:2021-11-21T05:26:04,968+0000 [29128 1] com.newrelic ERROR: Unable to start the New Relic Agent. Your application will continue to run but it will not be monitored.
+catalina.out:com.newrelic.agent.config.ConfigurationException: The agent requires an application name. Check the app_name setting in newrelic.yml
+catalina.out:   at com.newrelic.agent.config.ConfigServiceFactory.validateConfig(ConfigServiceFactory.java:76) ~[newrelic.jar:7.4.0]
+catalina.out:   at com.newrelic.agent.config.ConfigServiceFactory.createConfigService(ConfigServiceFactory.java:39) ~[newrelic.jar:7.4.0]
+catalina.out:   at com.newrelic.agent.Agent.tryToInitializeServiceManager(Agent.java:211) [newrelic.jar:7.4.0]
+catalina.out:   at com.newrelic.agent.Agent.continuePremain(Agent.java:152) [newrelic.jar:7.4.0]
+catalina.out:   at com.newrelic.bootstrap.BootstrapAgent.startAgent(BootstrapAgent.java:176) [newrelic.jar:7.4.0]
+catalina.out:   at com.newrelic.bootstrap.BootstrapAgent.premain(BootstrapAgent.java:113) [newrelic.jar:7.4.0]
+
+
+
+
+
+Java 
+	Template
+	------- Springboot(Framework)
+	-------- core java
+	--------- servt
+	---------- jsp
+	--------- beans
+==============================================
+CUSTOMER -->  TOMCAT ----> APP ----> DB
+              (A+W)	  WAR       MYSQL
+
+
+SECOND NEAR TO JUST LEARNING APM FEATURE ON NR - 30 mins --- 30 lab
+=============================================================
+- Windows	- 10 mins
+https://www.devopsschool.com/blog/newrelic-infrastructure-monitor-windows-2019-server-using-newrelic-infrastructure/
+
+- Apache	-  5 mins
+https://www.devopsschool.com/blog/newrelic-infrastructure-apache2-integration-and-monitoring-in-linux-centos-with-newrelic/
+
+Step 1 - Install Apache
+Step 2 - Enable apache for EXposing Metrics  
+Step 3 -  Install Apache integration for NewRelic Agent
+Step 4 - Enable apache Integ
+Step 5 - Restart Apache
+
+
+- MySql		- 10 
+- Docker	 5min	
+- Kubernetes - 30 mins - kubeadm
+=============================================================
+curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-LAK1USC8O0APYJPW79VDKZQ1U62 NEW_RELIC_ACCOUNT_ID=3347222 /usr/local/bin/newrelic install -n apache-open-source-integration
+
+
+
+
+DocumentRoot "/var/www/html"
+clea
+===================
+Step 1 - Install Docker 
+Step 2 - Enable Docker to expose metrices
+Step 3 - Install NR Agent
+Step 4 - Install docker integration
+Step 5 - Configure NR integ
+https://www.devopsschool.com/blog/newrelic-infrastructure-monitor-docker-and-containers-using-newrelic-infrastructure/
+
+===============================
+
+Master  + Workstation = 15.206.185.170 
+
+Worker = 13.235.71.144
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+
+https://www.devopsschool.com/blog/how-to-setup-integration-of-kubernetes-with-newrelic-install-and-configure/
+
+kubeadm join 172.31.6.206:6443 --token k3776j.hfj82lvdm1waf3b3 \
+        --discovery-token-ca-cert-hash sha256:f24c20bb343c36e688aba933fc953813eb16f108f445dbe57965f5777088e0dd
+
+
+./helm repo add newrelic https://helm-charts.newrelic.com && ./helm repo update && \
+kubectl create namespace newrelic ; ./helm upgrade --install newrelic-bundle newrelic/nri-bundle \
+ --set global.licenseKey=e86a70964c3076305c75b5e54377a3f61208NRAL \
+ --set global.cluster=kubernetes \
+ --namespace=newrelic \
+ --set newrelic-infrastructure.privileged=false \
+ --set global.lowDataMode=true \
+ --set ksm.enabled=true \
+ --set kubeEvents.enabled=true \
+ --set prometheus.enabled=true
+
+
