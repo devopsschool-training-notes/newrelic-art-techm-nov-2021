@@ -1,0 +1,68 @@
+Linux - 65.2.4.234
+Windows - 13.126.70.18
+HbjJSv3U(ve)BHqq;lTx=TO6uKTUvA*Z
+Administrator
+
+
+-------------------Parser & Transforming-----------------------
+
+  - name: apache-log
+    file: /var/log/apache2/access.log
+    attributes:
+      company: tcs
+      client: xyz
+      maintainer: rajesh
+
+
+    # Specify a list of custom attributes, as key-value pairs, to be included
+    # in each log record
+  - name: file-with-attributes
+    file: /var/log/logFile.log
+    attributes:
+      application: tomcat
+      department: sales
+      maintainer: example@mailprovider.com
+
+
+  - name: alternatives.log
+    file: /var/log/alternatives.log
+==============================================
+-> install Infra agent
+-> install apache
+-> Enable Apache Integration in Newrelic
+-> Enable Apache APM in Newrelic
+-> Enable Apache Log in Newrelic
+======================================
+	VERIFIED AT NEWRELIC
+
+
+
+
+
+
+Sajja Sudhakararao		15.207.114.64	
+MOHAN SAI			3.110.54.26
+Apuroop Sai Vempati		3.7.254.99
+Geddada Mani Prasanth		13.235.48.213
+Parijat Vaidya			3.110.115.246
+Puneet Jain			3.108.238.115
+Koduru Venkatasubbarayudu	13.233.157.80
+karthik T			13.232.70.178
+Rohith VJ			15.207.221.19
+Hemadri Byripogula		65.1.134.226
+AFzal Khan			3.110.115.249
+Karre Rajesh			13.127.80.75
+Vijaya vitta			65.2.75.210
+Kalai Selvan M			52.66.248.6
+
+3.108.250.127
+13.232.245.86
+3.109.207.25
+65.2.123.39
+
+
+
+
+
+
+
