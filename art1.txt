@@ -1,0 +1,369 @@
+https://www.devopsschool.com/blog/10-best-youtube-channels-for-programmers-and-devops-engineers/
+
+Artifactory
+================================
+What is Artifactory?
+-----------------------------
+	Repo(s) mgmt tool
+	From Jfrog
+	Written in Java
+	- JRE preq
+	- platform independent
+	Release
+	https://jfrog.com/pricing/
+	https://jfrog.com/pricing/#hosted
+	Version
+		- 7.X
+
+Artifactory Architecture
+=========================================
+Front End - JAVA
+Backend - Java
+DB - Derby(Deault), Mysql, postg, oracle, mssql
+https://www.jfrog.com/confluence/display/JFROG/System+Requirements
+
+Where this tool Stand in SDLC?
+===========================================
+Plan -> Code -> Analysis -> Build -> UT -> Package -> Archive -> Dep2Qa -> AT -> CC
+-------------------------------------------------------------------------------------
+JIRA -> Git --> SonarQube-> Maven -> Junit -> war -> Artifactory-> Ansible -> Selenium -> Jacoco
+
+Why do need this?
+======================================
+- Enterprise needs - centralized binary/package/artifact versioning system
+- Role based access control / Enterprise Authentication & auth
+- a repo mgmt too which support all kinds of package
+- Dev needs very well integration with build tools(maven - gradle - msbuild)
+- Package durability system
+
+What is Repo?
+	Versioning of binaries
+
+What is kind of Repo?
+---------------------------------------------------------
+Supported Package Types
+The JFrog Platform supports the following package formats with new formats added regularly as the need arises.
+- https://www.jfrog.com/confluence/display/JFROG/Package+Management
+
+Alpine
+Use Artifactory to gain full control of your deployment and resolution process of Alpine Linux (*.apk) packages.
+Bower
+Boost your front end development by hosting your own Bower components and proxying the Bower registry in Artifactory.
+Cargo
+Enhance your capabilities for configuration management with Cargo using all the benefits of a repository manager.
+Chef
+Enhance your capabilities for configuration management with Chef using all the benefits of a repository manager.
+CocoaPods
+Speed up development with Xcode and CocoaPods with fully fledged CocoaPods repositories.
+Conan
+Artifactory is the only secure, private repository for C/C++ packages with fine-grained access control.
+Conda
+Artifactory natively supports Conda repositories for Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN.
+CRAN
+Deploy and resolve CRAN packages for the R language using dedicated CRAN repositories.
+Debian
+Host and provision Debian packages complete with GPG signatures.
+Docker
+Host your own secure private Docker registries and proxy external Docker registries such as Docker Hub.
+Git LFS
+Optimize your workflow when working with large media files and other binary resources.
+Go Registry
+Build Go projects while resolving dependencies through Artifactory, and then publish the resulting Go packages into a secure, private Go registry
+Gradle
+Resolve dependencies from and deploy build output to Gradle repositories when running Gradle builds.
+Helm
+Manage your Helm Charts in Artifactory and gain control over deployments to your Kubernetes cluster.
+Maven
+Artifactory is both a source for Maven artifacts needed for a build, and a target to deploy artifacts generated in the build process.
+npm
+Host your own node.js packages, and proxy remote npm repositories like npmjs.org through Artifactory.
+NuGet
+Host and proxy NuGet packages in Artifactory, and pull libraries from Artifactory into your various Visual Studio .NET applications.
+Opkg
+Optimize your work with OpenWrt using Opkg repositories. Proxy the official OpenWrt repository and cache remote .ipk files.
+P2
+Proxy and host all your Eclipse plugins via an Artifactory P2 repository, allowing users to have a single-access-point for all Eclipse updates.
+PHP Composer
+Provision Composer packages from Artifactory to the Composer command line tool, and access Packagist and other remote Composer metadata repositories.
+Puppet
+Configuration management meets repository management with Puppet repositories in Artifactory.
+PyPI
+Host and proxy PyPI distributions with full support for pip.
+RPM
+Distribute RPMs directly from your Artifactory server, acting as fully-featured YUM repository.
+RubyGems
+Use Artifactory to host your own gems and proxy remote gem repositories like rubygems.org.
+
+SBT
+Resolve dependencies from and deploy build output to SBT repositories when running SBT builds.
+Vagrant
+Securely host your Vagrant boxes in local repositories.
+VCS
+Consume source files packaged as binaries.
+============================================
+- docker
+- maven
+- helm
+- npm
+- gradle
+
+
+Other tools
+==============================
+- SonaType Nexus
+- Apache Archiva
+
+=================================================================================
+How to install it?
+--------------------------
+3.110.155.165
+centos
+
+
+
+
+
+
+
+
+
+=====================================================================================
+=====================================================================================
+Docker Compose
+wget -O jfrog-compose-installer.tar.gz "https://releases.jfrog.io/artifactory/jfrog-prox/org/artifactory/pro/docker/jfrog-platform-trial-prox/[RELEASE]/jfrog-platform-trial-prox-[RELEASE]-compose.tar.gz"
+
+tar -xvzf jfrog-compose-installer.tar.gz
+
+cd jfrog-platform-trial-pro*
+
+sudo ./config.sh
+
+sudo docker-compose -p trial-pro-rabbitmq -f docker-compose-rabbitmq.yaml up -d
+
+sudo docker-compose -p trial-pro up -d
+=====================================================================================
+=====================================================================================
+RPM for CentOS (7, 8) / RHEL (7, 8)
+=====================================================================================
+=====================================================================================
+
+$ yum install wget -y
+
+$ wget -O jfrog-rpm-installer.tar.gz "https://releases.jfrog.io/artifactory/jfrog-prox/org/artifactory/pro/rpm/jfrog-platform-trial-prox/[RELEASE]/jfrog-platform-trial-prox-[RELEASE]-rpm.tar.gz"
+
+$ tar -xvzf jfrog-rpm-installer.tar.gz
+
+$ cd jfrog-platform-trial-pro*
+
+$ sudo ./install.sh
+
+$ sudo systemctl start artifactory.service
+
+$ sudo systemctl start xray.service
+
+
+===================================
+Start JFrog Platform Trial Pro X with:
+1. systemctl start artifactory.service
+2. systemctl start xray.service
+
+Check JFrog Platform Trial Pro X status with:
+1. systemctl status artifactory.service
+2. systemctl status xray.service
+
+Installation directory was set to /opt/jfrog/
+You can find more Artifactory information in the log directory /opt/jfrog/artifactory/var/log
+You can find more Xray information in the log directory /opt/jfrog/xray/var/log
+
+Once the application has started, it can be accessed at [http://172.31.2.74:8082]
+
+Username - admin
+Password - password / zLds%32ld#22
+===================================================================================
+Authenticaion - 
+Authorization - 
+
+Repos Type
+
+-----------------------
+Upload a Pack and Download using 
+- maven
+- gradle
+- docker
+- helm
+- npm
+--------------------------------
+Integration Jenkins with Artifactory
+
+
+Authenticaion - How to log in?
+======================================================
+- User ID & Pass - Default - Built it
+- LDAP
+SSO
+- SAML 
+- Oauth
+- HTTP
+- Crowd/Jira
+- Vault
+- SCIM
+
+- TOKEN
+
+
+
+Authorization - What access u would get after login?
+- Permission
+- Group 
+- User
+
+
+
+Repos Type
+=================================
+- Local	
+	----> Local to Artifactory
+	----> R W
+	----> Faster
+	----> Upload and Download
+	- http://3.110.155.165:8082/artifactory/rajesh-local-release-maven/
+	- http://3.110.155.165:8082/artifactory/rajesh-local-snapshot-maven/
+- Remote 
+	----> Cache of One Remote Repostory(maven central, another artifactory)
+	----> R
+	----> Faster
+	----> Dowload only
+	- http://3.110.155.165:8082/artifactory/rajesh-remote-maven/
+- virtual aka group
+	-- collection of LOCAL repo & Remote Repo
+	-- ONE ENDPOINT for all
+	- http://3.110.155.165:8082/artifactory/rajesh-virtual-maven/
+=========================================================
+Version Type in Maven
+- SNAPSHOT - NOT STABLE PAKAGE
+- RELEASE - STABLE PACKAGE
+
+
+
+
+- Distribution
+- Federated
+---------------------------------
+
+
+TASK 1 - Create  a Group
+Task 2 - Create a user and add user to group
+Task 3 - Add 4 Maven repo 
+Task 4 - Add perm to group for ur repo
+Task 5 - Do below
+
+Upload a Pack and Download using
+==================================================================s
+Upload a pacakeg Using maven
+===================================================================
+Step 1 - Install JDK and Set JAVA_HOME
+
+$ java --version
+$ javac
+
+    5  yum install java-11-openjdk-devel
+    6  sudo yum install java-11-openjdk-devel
+   14  yum install wget -y
+   15  sudo yum install wget -y
+   21  sudo yum install unzip -y
+   23  sudo yum install maven
+   50  sudo yum install tree -y
+
+Using command line in windows
+--------------
+$ setx -m JAVA_HOME "C:\Progra~1\Java\jdk1.8.0_XX"
+$ set JAVA_HOME "C:\Progra~1\Java\jdk1.8.0_XX"
+
+Using command line in Linux
+--------------
+
+
+Step 2 - Download maven and Add maven/bin path into PATH env var.
+
+
+Using command line in windows
+-----------------
+$ set PATH="c:\program files\apache-maven-3.x.y\bin";%PATH%
+
+Step 3 - Create a sample Java Project using maven
+$ mvn archetype:generate -DgroupId=com.devopsschool.software -DartifactId=devops -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+# -DartifactId=devops - Change this
+
+Step 4 - Locate  pom.xml and setting.xml with notedpad+++ and understand
+- /usr/share/maven/conf/settings.xml
+- /home/centos/rajesh/devops/pom.xml
+
+Step 5 - Add a Repo location in Pom.xml
+-Ref - https://github.com/devopsschool-demo-labs-projects/helloworld-java-maven
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>ip-172-31-2-74.ap-south-1.compute.internal-releases</name>
+        <url>http://3.110.155.165:8081/artifactory/rajesh-local-release-maven</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-172-31-2-74.ap-south-1.compute.internal-snapshots</name>
+        <url>http://3.110.155.165:8081/artifactory/rajesh-local-snapshot-maven</url>
+    </snapshotRepository>
+</distributionManagement>
+
+Step 6:
+RULE 
+Make sure that "repository" element id of pom.xml MUST match with a "server" element id of setting.xml
+
+Step 7 - Update setting.xml with access
+- /usr/share/maven/conf/settings.xml
+-Ref - https://github.com/devopsschool-demo-labs-projects/helloworld-java-maven
+
+<server>
+	<id>central</id>
+	<username>admin</username>
+	<password>zLds%32ld#22</password>
+</server>
+<server>
+	<id>snapshots</id>
+	<username>admin</username>
+	<password>zLds%32ld#22</password>
+</server>
+
+
+Step 8 - mvn deploy
+
+Step 9 - Validate at artifactory
+
+
+
+
+IP - 65.1.108.155
+==================================================
+
+
+
+
+
+Apur		65.0.11.182
+afzal		65.2.70.11
+venkat		13.232.16.214	
+Sai		3.109.122.65
+Sel		13.233.251.147
+Vitta		13.126.183.72
+hema		3.108.234.65
+Kar		3.110.122.154
+Rajesh		3.110.92.231
+
+13.235.82.168
+
+username - centos
+
+
+
+
+
