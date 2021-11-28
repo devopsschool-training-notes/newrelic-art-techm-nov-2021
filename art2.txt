@@ -1,0 +1,44 @@
+How to download a package from Artifactory using Maven
+=========================================================
+How maven repo concept & dependency works?
+=====================================
+
+mvn ----> pom.xml
+	- Check a dependency lib
+	-- Check a lib in LocalRepo (USER_HOME/.m2)
+		IF NOT FOUND
+		-- Check a lib in Centralrepo https://repo.maven.apache.org/maven2/
+		&& Download to LocalRepo and use it
+
+Project:
+- devops-x
+- devops-y
+
+devops-y is having depedendency of devops-x. v1.
+
+<dependency>
+    <groupId>com.devopsschool.software</groupId>
+    <artifactId>devops-x</artifactId>
+    <version>1.0</version>
+</dependency>
+
+
+<mirror>
+      <id>group</id>
+      <name>Maven Repository Manager running on repo.mycompany.com</name>
+      <url>http://15.207.18.3:8082/artifactory/rajesh-virtual-maven/</url>
+      <mirrorOf>*</mirrorOf>
+</mirror>
+
+
+Step 1 - Have 2 Project
+
+Step 2 - Make one of another dependency & build it and clear a .m2
+
+step 3 - Modify setting.xml with mirror elements
+
+Step 4 - mvn deploy
+
+
+
+
