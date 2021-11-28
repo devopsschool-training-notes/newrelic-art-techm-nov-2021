@@ -22,14 +22,26 @@ devops-y is having depedendency of devops-x. v1.
     <version>1.0</version>
 </dependency>
 
-
+<mirrors>
 <mirror>
       <id>group</id>
       <name>Maven Repository Manager running on repo.mycompany.com</name>
       <url>http://15.207.18.3:8082/artifactory/rajesh-virtual-maven/</url>
       <mirrorOf>*</mirrorOf>
 </mirror>
-
+<mirror>
+      <id>group</id>
+      <name>Maven Repository Manager running on repo.mycompany.com</name>
+      <url>http://15.207.18.3:8082/artifactory/rajesh-virtual-maven/</url>
+      <mirrorOf>*</mirrorOf>
+</mirror>
+<mirror>
+      <id>group</id>
+      <name>Maven Repository Manager running on repo.mycompany.com</name>
+      <url>http://15.207.18.3:8082/artifactory/rajesh-virtual-maven/</url>
+      <mirrorOf>*</mirrorOf>
+</mirror>
+</mirrors>
 
 Step 1 - Have 2 Project
 
@@ -38,6 +50,136 @@ Step 2 - Make one of another dependency & build it and clear a .m2
 step 3 - Modify setting.xml with mirror elements
 
 Step 4 - mvn deploy
+=================================================================
+Gradle
+==============================
+Option 1 - Gradle repo
+
+Option 2 - Maven repo
+
+---------------------
+http://15.207.18.3:8082/artifactory/gradle-rajesh/
+---------------------
+Example - https://github.com/devopsschool-demo-labs-projects/gradle-artifactory-upload-example
+=================================================================
+Maven				Gradle
+------------------------------------------
+pom.xml				build.gradle
+settings.xml			settings.gradle
+				gradle.properties
+mvn archtyp			gradle init
+
+
+$ export PATH=$PATH:/home/centos/gradle-7.3/bin
+$ gradle tasks 
+
+=================================================================
+https://www.devopsschool.com/blog/how-to-setup-docker-registry-repository-using-jfrog-artifactory/
+https://www.devopsschool.com/blog/docker-private-registry-using-nexus-artifactory-or-docker-registry/
+https://www.devopsschool.com/blog/how-to-setup-docker-repository-in-artifactory-and-push-pull-images/
+=================================================================
+How to download and Upload Docker image?
+===========================================
+Step 1 - Create a docker image		DONE
+Step 2 - Create a docker registry
+Step 3 - docker login registry
+Step 4 - docker push
+Step 5 - docker pull
+
+-----------------
+FROM ubuntu
+MAINTAINER Rajesh kumar
+RUN apt-get update
+RUN apt-get install git -y
+-----------------
+
+ 427  vi dockerifle
+  428  docker build -t rajesh .
+  429  docker build -f dockerifle -t rajesh .
+  430  sud o docker build -f dockerifle -t rajesh .
+  431  sudo docker build -f dockerifle -t rajesh .
+  432  clear
+  433  sudo docker images
+
+
+registry
+	contains whats?
+	repo1
+		contains whats?
+		- version of file systems
+	repo1
+	repo3
+
+Artifactory server
+	registry1
+		rajesh1 == repo === imagename
+		rajesh2
+		rajesh3
+	registry2
+		rajesh1
+		rajesh2
+		rajesh3
+
+
+
+https://github.com/IBM/charts/blob/master/community/artifactory-ha/ReverseProxyConfiguration.md
+https://www.jfrog.com/confluence/display/JFROG/HTTP+Settings
+
+docker pull / push <Artifactory Host IP Address>:8082/<REPOSITORY_KEY>/<IMAGE>:<TAG>
+docker login -u <USER_NAME> -p <USER_PASSWORD> <Artifactory Host IP Address>:8082
+
+Note: The Docker client refuses performing 'docker login' to 127.0.0.1 or localhost. You should use the explicit Artifactory host IP address.
+
+- Users will have access to the JFrog Unified Platform at the following URL(s): http://15.207.18.3:8082
+
+
+docker login -u admin -p zLds%32ld#22 15.207.18.3:8082
+
+{
+"insecure-registries" : ["15.207.18.3:8082"]
+}
+
+docker push 15.207.18.3:8082/rajeshreg/rajesh
+docker pull 15.207.18.3:8082/rajeshreg/rajesh
+
+
+
+ 437  clear
+  438  docker login -u admin -p zLds%32ld#22 15.207.18.3:8082
+  439  sudo docker login -u admin -p zLds%32ld#22 15.207.18.3:8082
+  440   vi vi /etc/docker/daemon.json
+  441  clear
+  442  vi /etc/docker/daemon.json
+  443  sudo vi /etc/docker/daemon.json
+  444  sudo systemctl restart docker
+  445  sudo docker login -u admin -p zLds%32ld#22 15.207.18.3:8082
+  446  clear
+  447  docker images
+  448  clear
+  449  sudo docker images
+  450  clear
+  451  docker push 15.207.18.3:8082/rajeshreg/rajesh
+  452  sudo docker push 15.207.18.3:8082/rajeshreg/rajesh
+  453  sudo docker images
+  454  sudo docker tag rajesh 15.207.18.3:8082/rajeshreg/rajesh
+  455  sudo docker images
+  456  sudo docker push 15.207.18.3:8082/rajeshreg/rajesh
+  457  sudo docker ps a
+  458  clewar
+  459  clear
+  460  sudo docker ps a
+  461  sudo docker ps -a
+  462  sudo docker images
+  463  sudo docker rmi 15.207.18.3:8082/rajeshreg/rajesh rajesh
+  464  clear
+  465  sudo docker images
+  466  sudo docker pull 15.207.18.3:8082/rajeshreg/rajesh
+  467  sudo docker images
+  468  sudo docker run -itd 15.207.18.3:8082/rajeshreg/rajesh
+  469  sudo docker ps
+
+
+
 
 
 
