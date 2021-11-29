@@ -1,3 +1,6 @@
+Important Repo - 
+https://github.com/devopsschool-demo-labs-projects/artifactory-project-example
+
 How to download a package from Artifactory using Maven
 =========================================================
 How maven repo concept & dependency works?
@@ -177,10 +180,246 @@ docker pull 15.207.18.3:8082/rajeshreg/rajesh
   467  sudo docker images
   468  sudo docker run -itd 15.207.18.3:8082/rajeshreg/rajesh
   469  sudo docker ps
+============================================================================
+
+Step1  - Create a helm package
+
+Step 2 - craete a repo in art
+
+Step 3 - login
+
+Step 4 - 
 
 
 
 
+helm repo update
+
+
+  983  ls
+  984  curl -H "X-JFrog-Art-Api:AKCp8k8igKm2AZdeEmsrGg5MgZGvhb5hY7dfsTiaoUNkZd2MyeaEqqH4UwSn9HeQGfMuqFx69" -T ./raju "http://15.207.18.3:8081/artifactory/rajesh-helm/raju"
+  985  clear
+  986  ls
+  987  helm
+  988  clear
+  989  ls
+  990  helm repo add rajesh-helmv http://15.207.18.3:8081/artifactory/api/helm/rajesh-helmv --username admin --password zLds%32ld#22
+
+Step 1- Set your default Artifactory Helm repository/registry with the following command:
+
+$ helm repo add rajesh-helmv http://15.207.18.3:8081/artifactory/api/helm/rajesh-helmv --username <USERNAME> --password <PASSWORD>
+$ helm repo add rajesh-helmv http://15.207.18.3:8081/artifactory/api/helm/rajesh-helmv --username admin --password zLds%32ld#22
+
+
+
+Step 2 - To install a Helm Chart from this repository using your Helm command line client, use the following command:
+helm repo update
+helm install rajesh-helmv/[chartName]
+
+Step 3 - How to push helm chart 
+- https://github.com/belitre/helm-push-artifactory-plugin
+- https://jfrog.com/knowledge-base/how-do-i-deploy-large-files-to-artifactory/
+
+WORKING with HELM - 
+
+curl -X PUT -u admin:zLds%32ld#22 -T raju-1.1.0.tgz "http://15.207.18.3:8081/artifactory/rajesh-helm/test/raju-1.1.0.tgz"
+
+curl -X PUT -u myUser:myPassword -T test.txt "http://localhost:8081/artifactory/libs-release-local/test/test.txt"
+ 1070  clear
+ 1071  helm package raju
+ 1072  ls
+ 1073  helm package raju -h
+ 1074  clewar
+ 1075  clear
+ 1076  helm package raju --app-version=2
+ 1077  ls
+ 1078  helm package -h
+ 1079  clear
+ 1080  ls
+ 1081  rm -rf raju-0.1.0.tgz
+ 1082  ls
+ 1083  vi raju/Chart.yaml
+ 1084  clear
+ 1085  ls
+ 1086  helm package raju
+ 1087  ls
+ 1088  clear
+ 1089  ls
+ 1090  curl -X PUT -u admin:zLds%32ld#22 -T raju-1.1.0.tgz "http://15.207.18.3:8081/artifactory/rajesh-helm/test/raju-1.1.0.tgz"
+ 1091  clear
+
+
+=================================
+
+Gradle
+-------
+https://github.com/devopsschool-demo-labs-projects/artifactory-sample-code/tree/master/gradle-example-minimal
+
+
+
+
+
+Deploying Artifacts using Maven with jenkins
+Download Artifacts using Maven with jenkins
+
+Upgrading Artifactory
+
+Using WebDAV
+Updating Your Profile
+Configuring Artifactory
+Configuring the Database
+
+Configuring the Filestore
+Checksum-Based Storage
+
+Configuring Repositories
+Configuring Security
+Configuring a Reverse Proxy
+				- Ext apache  -
+				- ext nginx
+Mail Server Configuration
+Clustering Artifactory
+
+IPv6 Support
+Configuration Files
+YAML Configuration File
+Exposing Maven Indexes
+
+Installing with Docker
+- Refer official docs
+https://www.devopsschool.com/blog/setup-artifactory-pro-6-1-0-using-docker-containtainer/
+
+ set up visual studio for NuGet or any one of IDE tool with artifactory to restore the packages
+-------------------
+https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
+
+Binrtay
+- 
+Jenkins
+-----------------------
+https://www.devopsschool.com/tutorial/jenkins/jenkins-installation-and-configuration.html
+
+https://www.devopsschool.com/tutorial/jenkins/
+
+
+====================================================
+How to integrate Artifactory with jenkins?
+https://www.devopsschool.com/blog/how-to-integrate-artifactory-with-jenkins/
+
+Step 1 - Install Jenkins
+
+Step 2 - Installing Artifactory Plugins
+
+Step 3 - Configure Artifactory Plugins
+
+Step 4 - Create a job and upload a package to artifactory
+- https://github.com/devopsschool-demo-labs-projects/helloworld-java-maven
+
+Step 5 - Build & Validate
+====================================================================
+Lab 1 - Gradle using
+https://github.com/devopsschool-demo-labs-projects/artifactory-sample-code/tree/master/gradle-example-minimal
+$ gradle artifactoryPublish
+
+Lab 2 - Helm using
+
+$ helm create rajesh-chart
+$ helm package rajesh-chart
+$ curl -X PUT -u admin:zLds%32ld#22 -T raju-1.1.0.tgz "http://15.207.18.3:8081/artifactory/rajesh-helm/test/raju-1.1.0.tgz"
+
+Lab 2 - Jenkins
+http://13.232.211.214:8080/
+rajesh
+rajesh123
+=======================================================
+Artifactory HA
+===============================================
+Artifactory of Artifactory
+--------------------------------
+
+Human --> Web ---> DB
+-------------------------------
+	TOMCAT	--> PS
+	ART
+
+
+FILESTORE
+--
+Where packages is being stored.
+-----------------------------------
+https://www.jfrog.com/confluence/display/JFROG/Configuring+the+Filestore
+
+Step 1- Stop artifactory 
+Step 2-  Modify binarystore.xml
+https://www.jfrog.com/confluence/display/JFROG/Configuring+the+Filestore#ConfiguringtheFilestore-S3BinaryProvider'
+Step 3 - Add config entry
+Step 4 - Start Artifactory
+
+
+<config version="1">
+    <chain template="file-system"/>
+</config>
+
+
+<config version="2">
+    <chain template="s3"/>
+    <provider id="s3" type="s3">
+       <endpoint>s3.amazonaws.com</endpoint>
+       <identity>625097054767</identity>
+       <credential>[ENTER CREDENTIALS HERE]</credential>
+       <path>art-1</path>
+       <bucketName>artifactory8888888888888888888</bucketName>
+    </provider>
+</config>
+
+<config version="v1">
+    <chain template="s3"/>
+    <provider id="s3" type="s3">
+        <identity>XXXXXXXXXX</identity>
+        <credential>XXXXXXXXXXXXXXXXX</credential>    
+        <endpoint>[My S3 server]</endpoint>
+        <bucketName>[My S3 Bucket Name]</bucketName>
+        <proxyHost>[http proxy host name]</proxyHost>
+        <proxyPort>[http proxy port number]</proxyPort>
+        <proxyIdentity>XXXXX</proxyIdentity>
+        <proxyCredential>XXXX</proxyCredential>                         
+    </provider>
+</config>
+
+
+
+
+    <provider id="s3-storage-v3" type="s3-storage-v3">
+        <testConnection>false</testConnection>
+        <region>us-east-1</region>
+        <bucketName>example-development-artifactory</bucketName>
+        <path>artifactory/filestore</path>
+        <endpoint>s3.us-east-1.amazonaws.com</endpoint>
+        <maxConnections>50</maxConnections>
+        <useInstanceCredentials>true</useInstanceCredentials>
+        <refreshCredentials>true</refreshCredentials>
+        <roleName>arn:aws:iam::<redacted>:role/artifactory-k8s-s3-role</roleName>
+        <usePresigning>false</usePresigning>
+        <signatureExpirySeconds>300</signatureExpirySeconds>
+        <kmsServerSideEncryptionKeyId>alias/development-artifactory-s3</kmsServerSideEncryptionKeyId>
+        <property name="s3service.server-side-encryption" value="aws:kms"></property>
+    </provider>
+
+
+=====================
+Step 1 - Setup 2 Artfactory server
+Step 2 - Setup LB and LB both artifactory
+Step 3 - Change a DB of both artifactory to ONE
+	- DB host
+	- DB namer
+	- User
+	- Pass
+	- Port
+Step 4 - Change a filetore to cloud
+Step 5 - Start a Artifactory
+
+https://github.com/devopshq/artifactory-cleanup
+https://github.com/JDASoftwareGroup/artifactory-cleanup
 
 
 
